@@ -1,10 +1,7 @@
 # Basic Git Commands
 
-Welcome! I created a simple video playlist on how to use Git & 
-Github.com [here](https://www.youtube.com/playlist?list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4&action_edit=1)
-
 ### Creating a repository online for the <b>1st time</b>!
-``` sh
+```sh
 # navigated into your folder you want to put on Github
 $ touch README.md # create a file called README.md where you can put instructions/info about your folder like what you are reading right now!
 $ git init # initialize your git repository locally
@@ -16,7 +13,7 @@ $ git push -u origin master # the "-u" is so that the next time your push you do
 ```
 
 ### When adding on to your repository online with changes
-``` sh
+```sh
 $ git add .
 $ git add -u # when you have deleted a local file you want to remove from your repository
 $ git commit -m 'what has changed'
@@ -25,7 +22,7 @@ $ git push
 ```
 
 ### No more username & password input for every push
-``` sh   
+```sh   
 # Note that you must first generate a SSH key on your local computer and add it to your 
 # Github account before using the following command. Follow the directions here:
 # https://help.github.com/articles/generating-ssh-keys
@@ -33,7 +30,7 @@ $ git remote set-url origin git@github.com:yourUsername/yourReponame.git
 ```
 
 ### Working together from perspective of person that doesn't have the main repo
-``` sh
+```sh
 # fork repo you want to work on
 $ git clone https://github.com/yourUsername/yourReponame.git
 # add changes to your forked repo 
@@ -43,7 +40,7 @@ $ git pull # use this after someone else has made a change to the online repo
 ```
 
 ### Want to remove a file frome online github repo but keep it locally
-``` sh
+```sh
 $ git rm --cached localFileName
 # add localFileName to .gitignore file 
 # then commit these changes
@@ -51,7 +48,7 @@ $ git rm --cached localFileName
 ```
 
 ### Commands for fixing problems
-``` sh
+```sh
 # undo multiple commits  
 $ git reset --hard commitSHA###... # changes staging index and 
                                    # local folder to match online 
@@ -62,7 +59,7 @@ $ git push -f origin HEAD^^^:branchNameToUndoLast3Pushs
 ```
 
 ### Branch Commands 
-``` sh
+```sh
 # creating a new branch
 $ git branch -a # list all branches in working folder  
 $ git branch newBranchName  
@@ -79,4 +76,17 @@ $ git merge --no-ff newBranchName # "--no-ff" creates a commit that there was a 
 $ git push origin oldBranchName 
 $ git branch -D newBranchName # deletes local branch newBranchName
 $ git push origin --delete newBranchName # deletes remote branch newBranchName
+```
+
+### When you need to have git_repo_2 inside git_repo_1
+```sh
+# have both git_repo_1 and git_repo_2 with setup correctly from above
+$ cd git_repo_1
+$ git submodule add git@github.com:yourUsername/git_repo_2.git
+$ git add .; git commit -m 'what has changed'; git push 
+
+# to update your git_repo_1 when git_repo_2 independently changes
+$ cd git_repo_1
+$ git submodule init
+$ git submodule update
 ```
