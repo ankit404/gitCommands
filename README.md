@@ -70,12 +70,12 @@ $ git push -u origin newBranchName # adds new branch to github repo and "-u" let
 
 # merging new branch to old branch
 $ git checkout oldBranchName
-$ git merge --no-ff newBranchName # "--no-ff" creates a commit that there was a branch merge
+$ git merge --no-ff branchName # "--no-ff" creates a commit that there was a branch merge
 #                                   so in the future when you are looking at your commit log
 #                                   you know when exactly when you merged one branch into another
 $ git push origin oldBranchName 
-$ git branch -D newBranchName # deletes local branch newBranchName
-$ git push origin --delete newBranchName # deletes remote branch newBranchName
+$ git branch -D branchName # deletes local branch branchName
+$ git push remoteName --delete branchName # deletes remote branch branchName
 ```
 
 ### When you need to have git_repo_2 inside git_repo_1
