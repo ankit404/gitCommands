@@ -1,4 +1,4 @@
-# Basic Git Commands
+# Basic GiT Commands
 
 ### Creating a repository online for the <b>1st time</b>!
 ```sh
